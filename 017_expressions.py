@@ -91,7 +91,7 @@ add_one(4) * 3      # Evaluates to 15
 
 # To finish off, here's a real mind-bender:
 
-add_one(add_one(add_one(add_one(add_one(add_one(1))))))
+print(add_one(add_one(add_one(add_one(add_one(add_one(1)))))))
 
 # @TASK: What do you think that evaluates to? And why? Give
 # it a go and find out.

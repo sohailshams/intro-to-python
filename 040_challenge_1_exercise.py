@@ -30,7 +30,45 @@ print("")
 print("Function: report_long_words")
 
 def report_long_words(words):
-  pass
+    long_strings = get_long_strings(words)
+    ellipsis_string = correct_long_ellipsis_string(long_strings)
+    result = correct_format(ellipsis_string) 
+    return result
+
+def get_long_strings(words):
+    long_words = []
+    for word in words:
+        if len(word) >= 10 and not '-' in word:
+            long_words.append(word)
+    return long_words
+
+def correct_long_ellipsis_string(long_strings):
+    ellipsis_long_words = []
+    for word in long_strings:
+        if len(word) < 15:
+            ellipsis_long_words.append(word)
+        else:
+            ellipsis_string = word[0:15] + '...'
+            ellipsis_long_words.append(ellipsis_string)
+    return ellipsis_long_words
+
+def correct_format(ellipsis_string):
+  print('ellipsis_string', len(ellipsis_string))
+  result = 'These words are quite long:'
+  count = 0
+  if len(ellipsis_string) == 0:
+      result += ' '
+      
+  for word in ellipsis_string:
+      if count > 0:
+          result += ','
+
+      result += ' ' + word
+      count +=1
+
+  return result
+
+
 
 check_that_these_are_equal(
   report_long_words([
